@@ -1,0 +1,117 @@
+<!-- <!DOCTYPE html> -->
+<HTML>
+<HEAD>
+	<link rel="stylesheet" type="text/css" href="css/landingStyle.css" />
+	  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	  <script type="text/javascript">
+
+	  	$(document).ready(function(){
+	  		var contentPadding = $("#header").height();
+	  		$("#main").css("padding-top", contentPadding);
+
+	  	});
+	  	
+
+	 	$(document).scroll(function(){
+	 		var mainHeight = $("#main").height();
+	 		var headHeight = $("#header").height();
+	 		var scrollPosition = 0;
+	 		scrollPosition = $(document).scrollTop();
+
+
+	 		// var contentPosition = scrollPosition + headHeight;
+	 		// if(contentPosition>=mainHeight-2*headHeight)
+	 		// {
+	 		// 	contentPosition = mainHeight-2*headHeight;
+	 		// 	$("#main").css("padding-top", contentPosition);
+	 		// }
+	 	// 	var contentPadding = headHeight  ;
+
+			// if(scrollPosition >=  headHeight)
+	 	// 	{  
+	 	// 		contentPadding = scrollPosition - headHeight;
+	 	// 		$("#main").css("padding-top", contentPadding);
+
+	 	// 	}
+
+
+	 		// if(contentPadding<headHeight)
+	 		// {
+	 		// 	contentPadding = headHeight;
+	 		// }
+	 		// else if(contentPadding>headHeight+mainHeight)
+	 		// {
+	 		// 	contentPadding = headHeight+mainHeight;
+	 		// }
+
+	  		
+	 		if(scrollPosition >= mainHeight - headHeight)
+	 		{  
+	 			var footrPad = scrollPosition - (mainHeight - headHeight);
+	 			$("#footer").css("padding-top", footrPad);
+	 		} 
+	 		else 
+	 		{
+	 			$("#footer").css("padding-top", "0");
+	 		}
+
+	 		if(scrollPosition >= mainHeight - 2*headHeight)
+	 		{  
+	 			var opacity = scrollPosition/(mainHeight-headHeight);
+	 			if(opacity<0)
+	 			{
+	 				opacity = 0;
+	 			}
+	 			else if(opacity>1)
+	 			{
+	 				opacity = 1;
+	 			}
+	 			else
+	 			{
+	 				opacity = 0.3;
+	 			}
+	 			//var str = 'rgba(23, 46, 48,' + opacity+ ')';
+	 			console.log("Opacity: " + opacity);
+	 			// $("#header").css('background-color', 'rgba(23, 46, 48, ' + opacity +')');​
+	 			// $("#header").css("background-color", "rgba(23, 46, 48, " + opacity +")");​
+	 			// $("#header").css("background-color", "#172E30");​
+	 			
+
+	 			// var e = $('#top-bar');
+     //            var currentColor = $('#top-bar').css('background-color');
+     //            var lastComma = currentColor.lastIndexOf(')');
+     //            var newColor = currentColor.slice(0, lastComma - 1) + ", "+ opacity + ")";
+     //            $(e).css('background-color', newColor);
+	 		} 
+	 		else 
+	 		{
+	 			// $("#header").css("background-color", "rgba(23, 46, 48,0.3)");​
+	 		}
+	 		console.log("Doc Height: " + mainHeight);
+	 		console.log("Scroll Pos: " + scrollPosition);
+	 	});
+
+	 </script>
+</HEAD>
+
+<BODY>
+<div id="header">
+	<div class = "color-cream-mid">
+	BLAHHHHHH
+	</div>
+</div>
+
+<div id="main">
+	<div class = "color-orange-bright content">
+	SEARCH HERE
+	&nbsp;
+	</div>
+</div>
+<div id="footer">
+	<div class = "color-cream-mid">
+	SECOND 
+	</div>
+</div>
+
+</BODY>
+</HTML>
